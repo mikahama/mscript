@@ -1,0 +1,11 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+mscript/__init__.py
+mscript.egg-info/PKG-INFO
+mscript.egg-info/SOURCES.txt
+mscript.egg-info/dependency_links.txt
+mscript.egg-info/entry_points.txt
+mscript.egg-info/top_level.txt

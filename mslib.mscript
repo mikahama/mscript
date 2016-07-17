@@ -1,0 +1,108 @@
+Array.prototype.uniq = def ():
+   var u = {}
+   var a = []
+   for item in this:
+      if u.hasOwnProperty(item):
+         continue
+      end
+      a.push(item)
+      u[item] = 1
+   end
+   return a
+end
+
+Array.prototype.removeAt = def(index):
+	array.splice(index, 1)
+end
+
+def setCookie(cname, cvalue, exdays):
+    var d = new Date()
+    d.setTime(d.getTime() + (exdays*24*60*60*1000))
+    var expires = "expires="+d.toUTCString()
+    document.cookie = cname + "=" + cvalue + "; " + expires
+end
+
+def getCookie(cname):
+    var name = cname + "=";
+    var ca = document.cookie.split(";")
+    for c in ca:
+        while c.charAt(0) is ' ':
+         c = c.substring(1)
+        end
+        if c.indexOf(name) is 0: 
+        	return c.substring(name.length,c.length)
+        end
+    end
+    return ""
+end
+
+def int(text):
+	return parseInt(text)
+end
+
+def float(text):
+	return parseFloat(text)
+end
+
+def str(number):
+	return number.toString()
+end
+
+def request(url, type, callback):
+	var xmlhttp = new XMLHttpRequest()
+	xmlhttp.onreadystatechange=def():
+  		if xmlhttp.readyState is 4:
+    		callback.call(xmlhttp.status, xmlhttp.responseText)
+    	end
+    end
+	xmlhttp.open(type,url,true)
+	xmlhttp.send()
+end
+
+def eID(id):
+  var element = document.getElementById(id)
+	return element
+end
+
+def eC(className):
+  var element = document.getElementsByClassName(className)
+	return element
+end
+
+Element.prototype.eC = def (className):
+  var element = this.getElementsByClassName(className)
+	return element
+end
+
+isOdd = def(number):
+	return not ((number % 2) is 0)
+end
+
+isEven = def(number):
+	return ((number% 2) is 0)
+end
+
+if Element.prototype.innerText is null:
+  Element.prototype.innerText = def():
+    return this.textContent()
+  end
+end
+
+def GET(attribute_name):
+  var gets = window.location["search"]
+  gets = gets.substring(1)
+  var get_array = gets.split("&")
+  for get_item in get_array:
+    var item_parts = get_item.split("=")
+    if item_parts[0] is attribute_name:
+      if item_parts.length is 2:
+        return item_parts[1]
+      end
+      else:
+        return true
+      end
+    end
+  end
+  return null
+end
+
